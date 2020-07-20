@@ -8,7 +8,6 @@
 //--------------------------------------------------------------------------------------------------
 
 #include "${LEGATO_ROOT}/default.sdef"
-#include "${LEGATO_ROOT}/modules/WiFi/wifi.sinc"
 #include "sinc/module/${LEGATO_TARGET}.sinc"
 
 buildVars:
@@ -16,28 +15,13 @@ buildVars:
     MANGOH_ROOT = $CURDIR
 }
 
-apps:
-{
-    $CURDIR/apps/DataHub/dataHub
-    {
-        maxFileBytes: 4000K
-    }
-}
-
-commands:
-{
-    dhub = dataHub:/bin/dhub
-}
-
 interfaceSearch:
 {
     $CURDIR/interfaces
     $CURDIR/apps/LedService
-    $CURDIR/apps/DataHub
 }
 
 componentSearch:
 {
     $CURDIR/components
-    $CURDIR/apps/DataHub/components
 }
